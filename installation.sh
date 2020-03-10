@@ -134,7 +134,7 @@ echo
 
 
 		sudo mv $defaultNGinxConf /etc/nginx/sites-available/default
-
+		install_mysql
 		;;
 	esac
 
