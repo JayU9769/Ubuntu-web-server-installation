@@ -49,7 +49,7 @@ echo "#### Running apt-get update and apt-get upgrade #########"
 echo "#########################################################"
 echo
 echo
-sudo apt-get update #&& apt-get upgrade
+sudo apt-get update && apt-get upgrade
 echo
 	echo "Which Web Server Do you want?"
 	echo "   1) Apache with php7.2"
