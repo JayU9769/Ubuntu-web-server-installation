@@ -103,10 +103,10 @@ echo
 		#bash
 
 		sudo sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g' /etc/php/$defaultPHP/fpm/php.ini
-
+		sudo systemctl restart php$defaultPHP-fpm
 		sudo mv /etc/nginx/sites-available/default /etc/nginx/sites-available/old_default
 
-		defaultNGinxConf="Documents/default"
+		defaultNGinxConf=~/Documents/default
 		touch $defaultNGinxConf
 
 		echo "server {" >> $defaultNGinxConf
@@ -191,7 +191,7 @@ echo
 
 			valet install
 
-			nameservers="Documents/custom-nameservers"
+			nameservers=~/Documents/custom-nameservers
 			touch $nameservers
 
 			echo "nameserver 0.0.0.0" >> $nameservers
