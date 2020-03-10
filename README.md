@@ -13,6 +13,6 @@ Only one command to install apache2 or nginx, php and php-fpm and extensions, co
 
 # Installation guide
 
-1. open terminal by pressing ctrl + alt + t
+1. open terminal by pressing ``` ctrl + alt + t ```
 2. Download installation.sh file
-3. run bash path-to-file/installation.sh
+3. run ``` bash path-to-file/installation.sh ```
