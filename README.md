@@ -10,6 +10,8 @@ Only one command to install apache2 or nginx, php and php-fpm and extensions, co
 6. Laravel
 7. Linux-valet
 8. Chrome browser
+9. Mysql Server
+
 
 # Installation guide
 
