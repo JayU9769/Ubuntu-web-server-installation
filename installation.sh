@@ -8,13 +8,13 @@ install_mysql()
 	echo
 	echo
 	sudo apt-get update && sudo apt-get install mysql-server -y
-	sudo mysql -u root -proot -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';"
+	sudo mysql -u root -proot -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';"
 }
 
 install_php()
 {
 
-	version=$1
+	version=7.4
 	echo "Installing php"
 	echo -ne '\n' | sudo add-apt-repository ppa:ondrej/php && sudo apt-get update
 
@@ -24,7 +24,7 @@ install_php()
 }
 
 ########### Defualt php version ###########
-defaultPHP=7.2
+defaultPHP=7.4
 
 read -p "Do you want to install chrome ? : " chrome
 if [ "$chrome" == "y" ] || [ "$chrome" == "Y" ] ; then
@@ -52,8 +52,8 @@ echo
 sudo apt-get update && apt-get upgrade
 echo
 	echo "Which Web Server Do you want?"
-	echo "   1) Apache with php7.2"
-	echo "   2) NGNIX with php7.2-fpm"
+	echo "   1) Apache with php7.4"
+	echo "   2) NGNIX with php7.4-fpm"
 	read -p "Select an option: " option
 	until [[ "$option" =~ ^[1-2]$ ]]; do
 			echo "$option: invalid selection."
@@ -124,7 +124,7 @@ echo
 		echo "" >> $defaultNGinxConf
 		echo "    location ~ \.php$ {" >> $defaultNGinxConf
 		echo "        include snippets/fastcgi-php.conf;" >> $defaultNGinxConf
-		echo "        fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;" >> $defaultNGinxConf
+		echo "        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;" >> $defaultNGinxConf
 		echo "    }" >> $defaultNGinxConf
 		echo "" >> $defaultNGinxConf
 		echo "    location ~ /\.ht {" >> $defaultNGinxConf
@@ -148,10 +148,10 @@ echo
 	sudo apt-get install curl -y
 	echo
 	echo "Which Node version Do you want?"
-	read -p "Select an option: (default Node version is 12) : " $nodeVersion
+	read -p "Select an option: (default Node version is 14) : " $nodeVersion
 	if [ -z "$nodeVersion" ]
 	then
-		nodeVersion=12;
+		nodeVersion=14;
       	echo "Installing node $nodeVersion"
       	echo "https://deb.nodesource.com/setup_$nodeVersion.x"
     fi
